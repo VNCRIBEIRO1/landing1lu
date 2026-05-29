@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luciana Pinho Advocacia — Direito Previdenciário</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="image-slot.js"></script>
+<style>
+  :root{
+    --navy:#16324e;
+    --navy-deep:#122a42;
+    --navy-soft:#1d3d5c;
+    --coral:#e2855f;
+    --coral-dark:#d2734c;
+    --coral-soft:#f5d9cb;
+    --cream:#f6f1ea;
+    --cream-deep:#efe8dd;
+    --ink:#1c3553;
+    --body:#56616e;
+    --muted:#8a929c;
+    --line:#e7e1d6;
+    --line-cream:#e1d9cc;
+    --white:#ffffff;
+    --serif:'Spectral',Georgia,serif;
+    --sans:'Source Sans 3',system-ui,sans-serif;
+    --maxw:1180px;
+    --shadow-card:0 1px 3px rgba(28,53,83,.05), 0 8px 24px rgba(28,53,83,.05);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;scroll-padding-top:84px;}
+  body{
+    font-family:var(--sans);
+    color:var(--body);
+    background:var(--white);
+    line-height:1.6;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  h1,h2,h3,h4{font-family:var(--serif);color:var(--ink);font-weight:600;line-height:1.18;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  .accent{color:var(--coral);}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    font-family:var(--sans);font-weight:600;font-size:15px;
+    padding:14px 24px;border-radius:8px;cursor:pointer;border:1.5px solid transparent;
+    transition:background .18s,border-color .18s,color .18s,transform .18s;
+    white-space:nowrap;
+  }
+  .btn svg{width:18px;height:18px;}
+  .btn-coral{background:var(--coral);color:#fff;}
+  .btn-coral:hover{background:var(--coral-dark);}
+  .btn-ghost-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.35);}
+  .btn-ghost-light:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.6);}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;background:var(--navy);
+    border-bottom:1px solid rgba(255,255,255,.07);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:76px;}
+  .brand{display:flex;align-items:center;gap:12px;color:#fff;}
+  .brand .mark{width:34px;height:34px;color:var(--coral);flex:none;}
+  .brand .mark svg{width:100%;height:100%;}
+  .brand-name{font-family:var(--serif);font-weight:600;font-size:19px;line-height:1.05;color:#fff;}
+  .brand-name span{display:block;font-size:13.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.7);font-family:var(--sans);font-weight:500;margin-top:2px;}
+  .nav-links{display:flex;align-items:center;gap:30px;}
+  .nav-links a{color:rgba(255,255,255,.82);font-size:15px;font-weight:500;padding:6px 0;position:relative;transition:color .18s;}
+  .nav-links a:hover{color:#fff;}
+  .nav-links a.active{color:var(--coral);}
+  .nav-links a.active::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--coral);border-radius:2px;}
+  .nav-right{display:flex;align-items:center;gap:18px;}
+  .menu-toggle{display:none;background:none;border:none;color:#fff;cursor:pointer;padding:6px;}
+  .menu-toggle svg{width:26px;height:26px;}
+
+  /* ---------- Hero ---------- */
+  .hero{background:var(--navy);color:#fff;position:relative;overflow:hidden;}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center;padding:64px 0 116px;}
+  .hero h1{color:#fff;font-size:clamp(34px,4vw,52px);font-weight:600;letter-spacing:-.01em;}
+  .hero .rule{width:54px;height:3px;background:var(--coral);border-radius:3px;margin:26px 0 22px;}
+  .hero p.lead{font-size:17px;color:rgba(255,255,255,.8);max-width:480px;line-height:1.65;}
+  .hero-cta{display:flex;gap:16px;margin-top:34px;flex-wrap:wrap;}
+  .hero-trust{display:flex;gap:30px;margin-top:40px;flex-wrap:wrap;}
+  .hero-trust .t{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.85);font-size:14.5px;font-weight:500;}
+  .hero-trust .t svg{width:20px;height:20px;color:var(--coral);flex:none;}
+  .hero-trust .sep{width:1px;background:rgba(255,255,255,.18);}
+  .hero-photo{position:relative;}
+  .hero-photo image-slot{
+    width:100%;height:520px;
+    -webkit-mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,.4) 14%, #000 42%), linear-gradient(to bottom, #000 70%, transparent 100%);
+    -webkit-mask-composite:source-in;
+    mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,.4) 14%, #000 42%), linear-gradient(to bottom, #000 70%, transparent 100%);
+    mask-composite:intersect;
+  }
+
+  /* ---------- Section primitives ---------- */
+  section{position:relative;}
+  .section-cream{background:var(--cream);}
+  .pad{padding:74px 0;}
+  .center{text-align:center;}
+  .sec-title{font-size:clamp(28px,3.2vw,38px);text-align:center;}
+  .sec-title .u{position:relative;}
+  .title-rule{width:56px;height:3px;background:var(--coral);border-radius:3px;margin:16px auto 0;}
+
+  /* ---------- Features strip ---------- */
+  .features{
+    background:var(--cream);border:1px solid var(--line-cream);border-radius:16px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    margin:-44px auto 0;position:relative;z-index:5;box-shadow:var(--shadow-card);
+  }
+  .features .feat{padding:30px 28px;border-right:1px solid var(--line-cream);}
+  .features .feat:last-child{border-right:none;}
+  .features .feat .ic{width:30px;height:30px;color:var(--coral);margin-bottom:14px;}
+  .features .feat h4{font-size:18px;margin-bottom:8px;}
+  .features .feat p{font-size:14px;color:var(--body);line-height:1.55;}
+  .feat-strip-wrap{padding-bottom:18px;}
+
+  /* ---------- Áreas de atuação ---------- */
+  .areas-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px;
+  }
+  .area-card{
+    background:#fff;border:1px solid var(--line);border-radius:14px;padding:30px 26px;
+    text-align:center;transition:transform .2s,box-shadow .2s,border-color .2s;
+  }
+  .area-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(28,53,83,.09);border-color:var(--coral-soft);}
+  .area-card .ic{width:42px;height:42px;color:var(--coral);margin:0 auto 16px;}
+  .area-card h3{font-size:20px;margin-bottom:10px;}
+  .area-card p{font-size:14.5px;color:var(--body);}
+
+  /* ---------- Como funciona ---------- */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:48px;align-items:start;}
+  .step{position:relative;padding:0 18px;}
+  .step .num{width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:600;font-size:17px;margin-bottom:16px;}
+  .step h4{font-size:17.5px;margin-bottom:8px;color:var(--ink);}
+  .step p{font-size:14px;color:var(--body);line-height:1.55;}
+  .step .arrow{position:absolute;top:10px;right:-4px;color:var(--muted);width:22px;height:22px;}
+  .step:last-child .arrow{display:none;}
+
+  /* ---------- Three column ---------- */
+  .tri{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;margin-top:8px;align-items:start;}
+  .panel-title{font-size:23px;margin-bottom:22px;}
+  /* Sobre */
+  .sobre-photo{width:100%;height:190px;margin-bottom:18px;}
+  .sobre p{font-size:14.5px;color:var(--body);margin-bottom:12px;}
+  .sobre-badges{display:flex;gap:18px;margin-top:20px;}
+  .sobre-badges .b{text-align:center;flex:1;}
+  .sobre-badges .b .ic{width:26px;height:26px;color:var(--coral);margin:0 auto 8px;}
+  .sobre-badges .b span{font-size:12px;color:var(--body);line-height:1.3;display:block;font-weight:500;}
+  /* Conteúdo */
+  .panel-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:22px;gap:10px;flex-wrap:wrap;}
+  .panel-head .panel-title{margin-bottom:0;}
+  .link-all{font-size:13.5px;color:var(--coral);font-weight:600;white-space:nowrap;display:inline-flex;align-items:center;gap:5px;}
+  .link-all svg{width:14px;height:14px;}
+  .article{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);}
+  .article:last-child{border-bottom:none;}
+  .article image-slot{width:92px;height:72px;flex:none;}
+  .article h4{font-size:15.5px;margin-bottom:5px;line-height:1.3;color:var(--ink);}
+  .article p{font-size:13px;color:var(--body);line-height:1.45;margin-bottom:6px;}
+  .article .read{font-size:12.5px;color:var(--coral);font-weight:600;display:inline-flex;align-items:center;gap:4px;}
+  .article .read svg{width:13px;height:13px;}
+  /* FAQ */
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{width:100%;background:none;border:none;cursor:pointer;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 0;font-family:var(--sans);font-size:15px;font-weight:600;color:var(--ink);line-height:1.4;}
+  .faq-q .pm{flex:none;width:22px;height:22px;display:flex;align-items:center;justify-content:center;color:var(--coral);transition:transform .25s;}
+  .faq-q .pm svg{width:18px;height:18px;}
+  .faq-item.open .faq-q .pm{transform:rotate(45deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .faq-a p{font-size:14px;color:var(--body);padding:0 0 18px;line-height:1.6;}
+  .faq-foot{font-size:13.5px;color:var(--muted);margin-top:18px;}
+  .faq-foot a{color:var(--coral);font-weight:600;}
+
+  /* ---------- Contato ---------- */
+  .contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:start;}
+  .contact-left h2{font-size:clamp(28px,3.2vw,36px);margin-bottom:18px;}
+  .contact-left .rule{width:54px;height:3px;background:var(--coral);border-radius:3px;margin-bottom:22px;}
+  .contact-left p{font-size:15px;color:var(--body);margin-bottom:18px;max-width:380px;}
+  .lgpd{display:flex;gap:12px;align-items:flex-start;background:var(--cream);border:1px solid var(--line-cream);border-radius:12px;padding:16px 18px;margin-bottom:18px;}
+  .lgpd svg{width:22px;height:22px;color:var(--coral);flex:none;margin-top:2px;}
+  .lgpd p{font-size:13px;color:var(--body);margin:0;}
+  .priv-links{font-size:13.5px;}
+  .priv-links a{color:var(--coral);font-weight:600;}
+  .priv-links .dot{color:var(--muted);margin:0 8px;}
+  .form{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px;box-shadow:var(--shadow-card);}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .field{margin-bottom:16px;}
+  .field input,.field textarea{
+    width:100%;font-family:var(--sans);font-size:15px;color:var(--ink);
+    padding:13px 15px;border:1px solid var(--line);border-radius:8px;background:#fdfcfa;
+    transition:border-color .18s,box-shadow .18s;
+  }
+  .field textarea{resize:vertical;min-height:118px;}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--coral);box-shadow:0 0 0 3px var(--coral-soft);}
+  .field input::placeholder,.field textarea::placeholder{color:var(--muted);}
+  .form-foot{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:6px;flex-wrap:wrap;}
+  .consent{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--body);max-width:260px;line-height:1.4;}
+  .consent input{width:17px;height:17px;margin-top:2px;accent-color:var(--coral);flex:none;}
+  .consent a{color:var(--coral);font-weight:600;}
+  .form .btn-coral{padding:14px 30px;}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--navy);color:rgba(255,255,255,.72);}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1.1fr 1.3fr;gap:36px;padding:60px 0 44px;}
+  .foot-brand .brand{margin-bottom:16px;}
+  .foot-brand p{font-size:14px;color:rgba(255,255,255,.62);max-width:280px;line-height:1.6;}
+  .foot h5{color:#fff;font-family:var(--sans);font-size:15px;font-weight:600;margin-bottom:18px;}
+  .foot ul{list-style:none;display:flex;flex-direction:column;gap:11px;}
+  .foot ul a{font-size:14px;color:rgba(255,255,255,.72);transition:color .18s;}
+  .foot ul a:hover{color:var(--coral);}
+  .foot-contact li{display:flex;align-items:flex-start;gap:11px;font-size:14px;color:rgba(255,255,255,.72);}
+  .foot-contact li svg{width:17px;height:17px;color:var(--coral);flex:none;margin-top:3px;}
+  .foot-info p{font-size:13.5px;color:rgba(255,255,255,.62);line-height:1.6;margin-bottom:14px;}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding:20px 0;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;}
+  .foot-bottom .l{font-size:13px;color:rgba(255,255,255,.55);}
+  .foot-bottom .r{font-size:13px;color:rgba(255,255,255,.55);display:flex;gap:14px;align-items:center;}
+  .foot-bottom .r .dot{opacity:.4;}
+
+  /* ---------- Reveal animation ---------- */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* ---------- Mobile ---------- */
+  @media(max-width:980px){
+    .hero-grid{grid-template-columns:1fr;gap:38px;padding:48px 0 56px;}
+    .hero-photo image-slot{height:380px;}
+    .features{grid-template-columns:repeat(2,1fr);}
+    .features .feat:nth-child(2){border-right:none;}
+    .features .feat{border-bottom:1px solid var(--line-cream);}
+    .features .feat:nth-last-child(-n+2){border-bottom:none;}
+    .areas-grid{grid-template-columns:repeat(2,1fr);}
+    .steps{grid-template-columns:repeat(2,1fr);gap:28px 8px;}
+    .step .arrow{display:none;}
+    .tri{grid-template-columns:1fr;gap:40px;}
+    .contact-grid{grid-template-columns:1fr;gap:34px;}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:32px;}
+  }
+  @media(max-width:680px){
+    .wrap{padding:0 20px;}
+    .nav-links,.nav-right .btn{display:none;}
+    .menu-toggle{display:block;}
+    .nav-links.open{display:flex;position:absolute;top:76px;left:0;right:0;flex-direction:column;background:var(--navy-soft);padding:18px 24px;gap:6px;border-bottom:1px solid rgba(255,255,255,.1);}
+    .nav-links.open a{padding:11px 0;border-bottom:1px solid rgba(255,255,255,.08);width:100%;}
+    .hero-trust{gap:18px;}
+    .hero-trust .sep{display:none;}
+    .features{grid-template-columns:1fr;margin-top:-28px;}
+    .features .feat{border-right:none;border-bottom:1px solid var(--line-cream);}
+    .features .feat:last-child{border-bottom:none;}
+    .areas-grid{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr;}
+    .form-row{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr;gap:30px;}
+    .pad{padding:54px 0;}
+    .hero-cta .btn{flex:1;justify-content:center;}
+  }
+
+  /* ============ TWEAK OVERRIDES ============ */
+  :root{transition:none;}
+  /* — Paleta / mood — */
+  :root[data-palette="sereno"]{
+    --navy:#1e3c3a;--navy-deep:#173230;--navy-soft:#264a47;
+    --coral:#cf8a64;--coral-dark:#bd7752;--coral-soft:#ecd7c8;
+    --cream:#f1efe7;--cream-deep:#e9e4d8;--ink:#1f3a38;
+    --line:#e4e0d4;--line-cream:#ddd6c8;
+  }
+  :root[data-palette="institucional"]{
+    --navy:#28323e;--navy-deep:#1f2832;--navy-soft:#333f4d;
+    --coral:#b58e51;--coral-dark:#a07b41;--coral-soft:#e8ddc4;
+    --cream:#f3f1ec;--cream-deep:#ebe7df;--ink:#2a3340;
+    --line:#e6e2d8;--line-cream:#ded9cc;
+  }
+  :root[data-palette="rosado"]{
+    --navy:#3a2c3d;--navy-deep:#312534;--navy-soft:#4a3a4d;
+    --coral:#cf7e84;--coral-dark:#bd6b72;--coral-soft:#eed4d6;
+    --cream:#f4eeec;--cream-deep:#ece2df;--ink:#3a2c3d;
+    --line:#e8ddd9;--line-cream:#e0d3cf;
+  }
+  /* — Voz tipográfica — */
+  :root[data-voz="moderno"] h1,
+  :root[data-voz="moderno"] h2,
+  :root[data-voz="moderno"] h3,
+  :root[data-voz="moderno"] h4{
+    font-family:var(--sans);font-weight:700;letter-spacing:-.022em;
+  }
+  :root[data-voz="moderno"] .hero h1{letter-spacing:-.03em;}
+  :root[data-voz="editorial"] h1,
+  :root[data-voz="editorial"] h2,
+  :root[data-voz="editorial"] h3{
+    font-weight:500;letter-spacing:.002em;line-height:1.1;
+  }
+  :root[data-voz="editorial"] .hero h1{font-size:clamp(40px,5vw,64px);}
+  :root[data-voz="editorial"] .accent{font-style:italic;}
+  :root[data-voz="editorial"] .sec-title{font-size:clamp(32px,3.8vw,46px);}
+  /* — Densidade / ritmo — */
+  :root[data-densidade="espacoso"] .pad{padding:104px 0;}
+  :root[data-densidade="espacoso"] .hero-grid{padding:88px 0 132px;}
+  :root[data-densidade="espacoso"] .areas-grid{gap:30px;margin-top:60px;}
+  :root[data-densidade="espacoso"] .steps,
+  :root[data-densidade="espacoso"] .tri{margin-top:60px;}
+  :root[data-densidade="compacto"] .pad{padding:48px 0;}
+  :root[data-densidade="compacto"] .hero-grid{padding:40px 0 96px;}
+  :root[data-densidade="compacto"] .areas-grid{gap:16px;margin-top:34px;}
+  :root[data-densidade="compacto"] .steps,
+  :root[data-densidade="compacto"] .tri{margin-top:34px;}
+  :root[data-densidade="compacto"] .area-card{padding:24px 22px;}
+</style>
+</head>
+<body>
+
+<!-- Reusable scales-of-justice SVG mark -->
+<template id="markSvg">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3v18"/><path d="M7 21h10"/><path d="M5 6h14"/><path d="M8 6 4.5 13a3.5 3.5 0 0 0 7 0L8 6Z"/><path d="M16 6l3.5 7a3.5 3.5 0 0 1-7 0L16 6Z"/><path d="M9 3h6"/>
+  </svg>
+</template>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="wrap nav">
+    <a href="#inicio" class="brand">
+      <span class="mark" data-mark></span>
+      <span class="brand-name">Luciana Pinho<span>Advocacia</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#inicio" class="active">Início</a>
+      <a href="#areas">Áreas de Atuação</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#conteudo">Conteúdo</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="nav-right">
+      <a href="#contato" class="btn btn-coral">Agendar atendimento</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu"><i data-lucide="menu"></i></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid" style="padding: 0px 0px 7px; margin: 0px 0px 0px 100px; border-width: 0px; border-style: solid; border-radius: 100px 100px 10px; width: 1480px; height: 600px">
+    <div class="hero-text">
+      <h1>Atuação jurídica previdenciária com <span class="accent">acolhimento, clareza</span> e responsabilidade.</h1>
+      <div class="rule"></div>
+      <p class="lead">Atuação em Direito Previdenciário, BPC/LOAS e direitos da pessoa com deficiência, com orientação individualizada e análise técnica para proteger o que é seu por direito.</p>
+      <div class="hero-cta">
+        <a href="#contato" class="btn btn-coral"><i data-lucide="calendar-check"></i> Agendar atendimento</a>
+        <a href="https://wa.me/5511987654321" target="_blank" rel="noopener" class="btn btn-ghost-light"><i data-lucide="message-circle"></i> Falar pelo WhatsApp</a>
+      </div>
+      <div class="hero-trust">
+        <div class="t" style="padding: 0px"><i data-lucide="heart-handshake"></i> Atendimento humanizado</div>
+        <div class="sep"></div>
+        <div class="t" style="gap: 1px; font-weight: 500; line-height: 1.6; letter-spacing: 0px; height: 23px; width: 131px; padding: 0px"><i data-lucide="message-square"></i> Orientação clara</div>
+        <div class="sep"></div>
+        <div class="t"><i data-lucide="shield-check"></i> Atuação ética</div>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <image-slot id="hero-portrait" shape="rect" placeholder="Solte a foto da Dra. Luciana (escritório)" style="padding: 10px 20px 0px 0px; height: 600px; width: 500px"></image-slot>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES STRIP ============ -->
+<section class="feat-strip-wrap">
+  <div class="wrap">
+    <div class="features reveal">
+      <div class="feat">
+        <i class="ic" data-lucide="user-round"></i>
+        <h4>Atendimento personalizado</h4>
+        <p>Cada pessoa é única. Escuta atenta e orientação adequada à sua realidade.</p>
+      </div>
+      <div class="feat">
+        <i class="ic" data-lucide="file-search"></i>
+        <h4>Análise técnica do caso</h4>
+        <p>Estudo cuidadoso da legislação e da documentação para orientações seguras.</p>
+      </div>
+      <div class="feat">
+        <i class="ic" data-lucide="messages-square"></i>
+        <h4>Comunicação objetiva</h4>
+        <p>Informações claras em todas as etapas do atendimento e do processo.</p>
+      </div>
+      <div class="feat">
+        <i class="ic" data-lucide="hand-heart"></i>
+        <h4>Acompanhamento cuidadoso</h4>
+        <p>Atuação responsável do início ao fim, com respeito e transparência.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ÁREAS DE ATUAÇÃO ============ -->
+<section class="pad" id="areas">
+  <div class="wrap">
+    <h2 class="sec-title reveal">Áreas de <span class="accent">atuação</span></h2>
+    <div class="title-rule reveal"></div>
+    <div class="areas-grid">
+      <div class="area-card reveal"><i class="ic" data-lucide="armchair"></i><h3>Aposentadoria</h3><p>Planejamento e concessão de aposentadorias.</p></div>
+      <div class="area-card reveal"><i class="ic" data-lucide="users-round"></i><h3>BPC/LOAS</h3><p>Benefício de Prestação Continuada para idosos e pessoas com deficiência.</p></div>
+      <div class="area-card reveal"><i class="ic" data-lucide="heart-pulse"></i><h3>Auxílio por incapacidade</h3><p>Auxílio-doença e aposentadoria por incapacidade.</p></div>
+      <div class="area-card reveal"><i class="ic" data-lucide="users"></i><h3>Pensão por morte</h3><p>Orientação para concessão do benefício aos dependentes.</p></div>
+      <div class="area-card reveal"><i class="ic" data-lucide="file-text"></i><h3>Revisão de benefício</h3><p>Análise para garantir que seu benefício esteja correto.</p></div>
+      <div class="area-card reveal"><i class="ic" data-lucide="accessibility"></i><h3>Direitos da pessoa com deficiência</h3><p>Acesso a benefícios e direitos com dignidade e inclusão.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMO FUNCIONA ============ -->
+<section class="pad section-cream">
+  <div class="wrap">
+    <h2 class="sec-title reveal">Como funciona o atendimento</h2>
+    <div class="title-rule reveal"></div>
+    <div class="steps">
+      <div class="step reveal"><i class="arrow" data-lucide="arrow-right"></i><div class="num">1</div><h4>Primeiro contato</h4><p>Você entra em contato e conta, de forma resumida, sua necessidade.</p></div>
+      <div class="step reveal"><i class="arrow" data-lucide="arrow-right"></i><div class="num">2</div><h4>Análise inicial</h4><p>Realizamos uma análise preliminar do caso e orientamos sobre os próximos passos.</p></div>
+      <div class="step reveal"><i class="arrow" data-lucide="arrow-right"></i><div class="num">3</div><h4>Documentação</h4><p>Orientamos sobre os documentos necessários para uma avaliação completa.</p></div>
+      <div class="step reveal"><div class="num">4</div><h4>Orientação jurídica</h4><p>Com base na análise, indicamos as medidas cabíveis e o melhor caminho para o seu caso.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRI: SOBRE / CONTEÚDO / FAQ ============ -->
+<section class="pad" id="sobre">
+  <div class="wrap tri">
+    <!-- Sobre -->
+    <div class="sobre reveal">
+      <h3 class="panel-title">Sobre a Dra. Luciana</h3>
+      <image-slot id="sobre-photo" class="sobre-photo" shape="rounded" radius="12" placeholder="Solte o retrato da Dra. Luciana"></image-slot>
+      <p>Advogada com atuação em Direito Previdenciário, dedicada à orientação jurídica de pessoas e famílias na busca por seus direitos.</p>
+      <p>Acreditamos que informação de qualidade e atendimento humanizado fazem a diferença em cada história.</p>
+      <div class="sobre-badges">
+        <div class="b"><i class="ic" data-lucide="user-round"></i><span>Atendimento individualizado</span></div>
+        <div class="b"><i class="ic" data-lucide="message-square"></i><span>Clareza na comunicação</span></div>
+        <div class="b"><i class="ic" data-lucide="shield-check"></i><span>Compromisso ético</span></div>
+      </div>
+    </div>
+
+    <!-- Conteúdo -->
+    <div class="conteudo reveal" id="conteudo">
+      <div class="panel-head">
+        <h3 class="panel-title">Conteúdo informativo</h3>
+        <a href="#" class="link-all">Ver todos os artigos <i data-lucide="arrow-right"></i></a>
+      </div>
+      <article class="article">
+        <image-slot id="art-1" shape="rounded" radius="8" placeholder="Imagem"></image-slot>
+        <div><h4>BPC/LOAS: quem tem direito ao benefício</h4><p>Entenda os requisitos e documentos necessários para solicitar o BPC.</p><a href="#" class="read">Ler artigo <i data-lucide="arrow-right"></i></a></div>
+      </article>
+      <article class="article">
+        <image-slot id="art-2" shape="rounded" radius="8" placeholder="Imagem"></image-slot>
+        <div><h4>Direitos da pessoa com deficiência</h4><p>Informações importantes sobre inclusão, benefícios e proteção de direitos.</p><a href="#" class="read">Ler artigo <i data-lucide="arrow-right"></i></a></div>
+      </article>
+      <article class="article">
+        <image-slot id="art-3" shape="rounded" radius="8" placeholder="Imagem"></image-slot>
+        <div><h4>Revisão de benefício: quando é possível?</h4><p>Saiba em quais situações pode haver revisão do seu benefício previdenciário.</p><a href="#" class="read">Ler artigo <i data-lucide="arrow-right"></i></a></div>
+      </article>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq reveal">
+      <h3 class="panel-title">Perguntas frequentes</h3>
+      <div class="faq-item">
+        <button class="faq-q">Quem pode receber o BPC/LOAS?<span class="pm"><i data-lucide="plus"></i></span></button>
+        <div class="faq-a"><p>O BPC/LOAS é destinado a idosos com 65 anos ou mais e a pessoas com deficiência que comprovem renda familiar dentro dos critérios previstos em lei.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Qual a diferença entre auxílio-doença e aposentadoria por incapacidade?<span class="pm"><i data-lucide="plus"></i></span></button>
+        <div class="faq-a"><p>O auxílio por incapacidade temporária é concedido quando há previsão de recuperação, enquanto a aposentadoria por incapacidade permanente se aplica quando não há possibilidade de retorno ao trabalho.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Como funciona a revisão de benefício?<span class="pm"><i data-lucide="plus"></i></span></button>
+        <div class="faq-a"><p>A revisão analisa se o valor ou os critérios de concessão do benefício estão corretos, podendo corrigir erros de cálculo ou enquadramento dentro dos prazos legais.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Quais documentos geralmente são necessários?<span class="pm"><i data-lucide="plus"></i></span></button>
+        <div class="faq-a"><p>Em geral, documentos pessoais, comprovantes de vínculo ou contribuição, laudos médicos e comprovante de renda. A lista exata depende de cada caso.</p></div>
+      </div>
+      <p class="faq-foot">Ainda tem dúvidas? <a href="#contato">Fale conosco.</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTATO ============ -->
+<section class="pad section-cream" id="contato">
+  <div class="wrap contact-grid">
+    <div class="contact-left reveal">
+      <h2>Entre em contato</h2>
+      <div class="rule"></div>
+      <p>Preencha o formulário ao lado que retornaremos o mais breve possível.</p>
+      <div class="lgpd">
+        <i data-lucide="lock"></i>
+        <p>Seus dados serão tratados em conformidade com a LGPD, exclusivamente para retorno do seu contato.</p>
+      </div>
+      <div class="priv-links">
+        <a href="#">Política de Privacidade</a><span class="dot">•</span><a href="#">Aviso de Privacidade</a>
+      </div>
+    </div>
+    <form class="form reveal" onsubmit="return false;">
+      <div class="form-row">
+        <div class="field"><input type="text" placeholder="Nome completo"></div>
+        <div class="field"><input type="tel" placeholder="Telefone (com DDD)"></div>
+      </div>
+      <div class="field"><input type="email" placeholder="E-mail"></div>
+      <div class="field"><textarea placeholder="Mensagem"></textarea></div>
+      <div class="form-foot">
+        <label class="consent"><input type="checkbox"> Li e concordo com a <a href="#">Política de Privacidade</a></label>
+        <button type="submit" class="btn btn-coral"><i data-lucide="send"></i> Enviar mensagem</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot foot-brand">
+      <a href="#inicio" class="brand">
+        <span class="mark" data-mark></span>
+        <span class="brand-name">Luciana Pinho<span>Advocacia</span></span>
+      </a>
+      <p>Direito Previdenciário com acolhimento, clareza e responsabilidade.</p>
+    </div>
+    <div class="foot">
+      <h5>Links rápidos</h5>
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#areas">Áreas de Atuação</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#conteudo">Conteúdo</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+    <div class="foot">
+      <h5>Contato</h5>
+      <ul class="foot-contact">
+        <li><i data-lucide="phone"></i><span>(11) 98765-4321</span></li>
+        <li><i data-lucide="mail"></i><span>contato@lucianapinho.adv.br</span></li>
+        <li><i data-lucide="map-pin"></i><span>São Paulo/SP — Atendimento presencial com agendamento.</span></li>
+      </ul>
+    </div>
+    <div class="foot foot-info">
+      <h5>Informações importantes</h5>
+      <p>Conteúdo meramente informativo. A análise de cada caso depende de avaliação individual.</p>
+      <p>Este site observa as diretrizes éticas da OAB e a LGPD.</p>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <div class="l">© 2024 Luciana Pinho Advocacia. Todos os direitos reservados.</div>
+    <div class="r"><span>OAB/SP 123.456</span><span class="dot">|</span><span>Site institucional</span></div>
+  </div>
+</footer>
+
+<script>
+  // Inject scales-of-justice mark into all [data-mark] spans
+  (function(){
+    var svg = document.getElementById('markSvg').innerHTML;
+    document.querySelectorAll('[data-mark]').forEach(function(el){ el.innerHTML = svg; });
+  })();
+
+  // Lucide icons
+  if(window.lucide) lucide.createIcons();
+
+  // Mobile nav
+  var toggle = document.getElementById('menuToggle');
+  var navLinks = document.getElementById('navLinks');
+  if(toggle){
+    toggle.addEventListener('click', function(){ navLinks.classList.toggle('open'); });
+    navLinks.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ navLinks.classList.remove('open'); });
+    });
+  }
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(function(q){
+    q.addEventListener('click', function(){
+      var item = q.closest('.faq-item');
+      var ans = item.querySelector('.faq-a');
+      var isOpen = item.classList.contains('open');
+      // close all
+      document.querySelectorAll('.faq-item.open').forEach(function(o){
+        o.classList.remove('open');
+        o.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        ans.style.maxHeight = ans.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // Scroll reveal
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el,i){
+    el.style.transitionDelay = (i % 4 * 0.06) + 's';
+    io.observe(el);
+  });
+
+  // Active nav link on scroll
+  var sections = ['inicio','areas','sobre','conteudo','contato'];
+  var navMap = {};
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    var id = a.getAttribute('href').slice(1); navMap[id] = a;
+  });
+  // map 'sobre' to the tri section (use #conteudo area roughly) — observe headings
+  var spy = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        Object.values(navMap).forEach(function(a){ a.classList.remove('active'); });
+        if(navMap[id]) navMap[id].classList.add('active');
+      }
+    });
+  }, {rootMargin:'-45% 0px -50% 0px'});
+  ['inicio','areas','sobre','contato'].forEach(function(id){
+    var el = document.getElementById(id); if(el) spy.observe(el);
+  });
+</script>
+
+<!-- ============ TWEAKS ============ -->
+<div id="tweaks-root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel">
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "palette": "acolhedor",
+    "voz": "classico",
+    "densidade": "equilibrado"
+  }/*EDITMODE-END*/;
+
+  const PALETTE_SWATCHES = {
+    acolhedor:     ["#16324e", "#e2855f", "#f6f1ea"],
+    sereno:        ["#1e3c3a", "#cf8a64", "#f1efe7"],
+    institucional: ["#28323e", "#b58e51", "#f3f1ec"],
+    rosado:        ["#3a2c3d", "#cf7e84", "#f4eeec"]
+  };
+  const PALETTE_LABELS = {
+    acolhedor: "Acolhedor", sereno: "Sereno",
+    institucional: "Institucional", rosado: "Rosado"
+  };
+
+  function applyTweaks(t){
+    const r = document.documentElement;
+    r.setAttribute('data-palette', t.palette);
+    r.setAttribute('data-voz', t.voz);
+    r.setAttribute('data-densidade', t.densidade);
+  }
+
+  function TweaksApp(){
+    const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+    React.useEffect(() => { applyTweaks(t); }, [t.palette, t.voz, t.densidade]);
+
+    const paletteOptions = Object.keys(PALETTE_SWATCHES);
+
+    return (
+      <TweaksPanel title="Tweaks">
+        <TweakSection label="Paleta" hint="Reformula o clima emocional do site inteiro." />
+        <div style={{display:'flex', flexDirection:'column', gap:'7px'}}>
+          {paletteOptions.map(key => {
+            const active = t.palette === key;
+            return (
+              <button key={key} onClick={() => setTweak('palette', key)} style={{
+                display:'flex', alignItems:'center', gap:'11px', width:'100%',
+                padding:'9px 11px', borderRadius:'9px', cursor:'pointer',
+                border: active ? '1.5px solid #e2855f' : '1.5px solid rgba(255,255,255,.12)',
+                background: active ? 'rgba(226,133,95,.13)' : 'rgba(255,255,255,.03)',
+                transition:'all .15s', textAlign:'left'
+              }}>
+                <span style={{display:'flex', borderRadius:'6px', overflow:'hidden', flex:'none', boxShadow:'0 0 0 1px rgba(0,0,0,.2)'}}>
+                  {PALETTE_SWATCHES[key].map((c,i)=>(
+                    <span key={i} style={{width:'18px', height:'24px', background:c}}></span>
+                  ))}
+                </span>
+                <span style={{fontSize:'13px', fontWeight:600, color: active ? '#fff' : 'rgba(255,255,255,.78)'}}>
+                  {PALETTE_LABELS[key]}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        <TweakSection label="Voz tipográfica" hint="Da serifa clássica ao sans moderno." />
+        <TweakRadio label="Estilo" value={t.voz}
+          options={[
+            {value:'classico', label:'Clássico'},
+            {value:'moderno', label:'Moderno'},
+            {value:'editorial', label:'Editorial'}
+          ]}
+          onChange={(v) => setTweak('voz', v)} />
+
+        <TweakSection label="Densidade" hint="Ritmo e respiro entre as seções." />
+        <TweakRadio label="Espaçamento" value={t.densidade}
+          options={[
+            {value:'compacto', label:'Compacto'},
+            {value:'equilibrado', label:'Equilibrado'},
+            {value:'espacoso', label:'Espaçoso'}
+          ]}
+          onChange={(v) => setTweak('densidade', v)} />
+      </TweaksPanel>
+    );
+  }
+
+  // Apply persisted tweaks immediately (host rewrites TWEAK_DEFAULTS on disk)
+  applyTweaks(TWEAK_DEFAULTS);
+
+  ReactDOM.createRoot(document.getElementById('tweaks-root')).render(<TweaksApp />);
+</script>
+</body>
+</html>
