@@ -3,12 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luciana Pinho Advocacia — Direito Previdenciário</title>
+<title>Dra. Luciana Pinho — Advocacia Previdenciária, PCD e TEA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
-<script src="image-slot.js"></script>
 <style>
   :root{
     --navy:#16324e;
@@ -51,7 +50,7 @@
   .btn{
     display:inline-flex;align-items:center;gap:9px;
     font-family:var(--sans);font-weight:600;font-size:15px;
-    padding:14px 24px;border-radius:8px;cursor:pointer;border:1.5px solid transparent;
+    padding:14px 24px;border-radius:10px;cursor:pointer;border:1.5px solid transparent;
     transition:background .18s,border-color .18s,color .18s,transform .18s;
     white-space:nowrap;
   }
@@ -94,10 +93,10 @@
   .hero-trust .t svg{width:20px;height:20px;color:var(--coral);flex:none;}
   .hero-trust .sep{width:1px;background:rgba(255,255,255,.18);}
   .hero-photo{position:absolute;top:0;right:0;bottom:0;width:70vw;}
-  .hero-photo image-slot{
-    width:100%;height:100%;
-    -webkit-mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,.4) 16%, #000 44%);
-    mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,.4) 16%, #000 44%);
+  .hero-photo img{
+    width:100%;height:100%;object-fit:cover;object-position:center top;
+    -webkit-mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,.35) 18%, #000 48%);
+    mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,.35) 18%, #000 48%);
   }
 
   /* ---------- Section primitives ---------- */
@@ -111,8 +110,8 @@
 
   /* ---------- Features strip ---------- */
   .features{
-    background:var(--cream);border:1px solid var(--line-cream);border-radius:16px;
-    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    background:var(--cream);border:1px solid var(--line-cream);border-radius:20px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;overflow:hidden;
     margin:-44px auto 0;position:relative;z-index:5;box-shadow:var(--shadow-card);
   }
   .features .feat{padding:30px 28px;border-right:1px solid var(--line-cream);}
@@ -127,28 +126,44 @@
     display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px;
   }
   .area-card{
-    background:#fff;border:1px solid var(--line);border-radius:14px;padding:30px 26px;
-    text-align:center;transition:transform .2s,box-shadow .2s,border-color .2s;
+    background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px 26px;
+    text-align:center;box-shadow:0 1px 2px rgba(28,53,83,.04);
+    transition:transform .2s,box-shadow .2s,border-color .2s;
   }
-  .area-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(28,53,83,.09);border-color:var(--coral-soft);}
+  .area-card:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(28,53,83,.1);border-color:var(--coral);}
   .area-card .ic{width:42px;height:42px;color:var(--coral);margin:0 auto 16px;}
   .area-card h3{font-size:20px;margin-bottom:10px;}
   .area-card p{font-size:14.5px;color:var(--body);}
 
-  /* ---------- Como funciona ---------- */
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:48px;align-items:start;}
-  .step{position:relative;padding:0 18px;}
-  .step .num{width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:600;font-size:17px;margin-bottom:16px;}
-  .step h4{font-size:17.5px;margin-bottom:8px;color:var(--ink);}
-  .step p{font-size:14px;color:var(--body);line-height:1.55;}
-  .step .arrow{position:absolute;top:10px;right:-4px;color:var(--muted);width:22px;height:22px;}
-  .step:last-child .arrow{display:none;}
+  /* ---------- Atendimento (timeline) ---------- */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:60px;align-items:start;}
+  .step{position:relative;padding:0;}
+  /* coral progress line threading through the nodes */
+  .step:not(:last-child)::after{
+    content:"";position:absolute;top:25px;left:25px;height:2px;width:calc(100% + 30px);
+    background:linear-gradient(to right,var(--coral) 0%,var(--coral-soft) 92%,transparent 100%);
+    z-index:0;
+  }
+  .step .num{
+    position:relative;z-index:1;
+    width:50px;height:50px;border-radius:50%;
+    background:linear-gradient(155deg,var(--navy-soft),var(--navy-deep));
+    color:#fff;display:flex;align-items:center;justify-content:center;
+    font-family:var(--serif);font-weight:600;font-size:20px;margin-bottom:22px;
+    box-shadow:0 0 0 6px var(--cream),0 0 0 7px var(--coral-soft),0 8px 18px rgba(18,42,66,.16);
+    transition:transform .25s ease,box-shadow .25s ease;
+  }
+  .step:hover .num{transform:translateY(-3px);box-shadow:0 0 0 6px var(--cream),0 0 0 7px var(--coral),0 12px 22px rgba(226,133,95,.32);}
+  .step-label{display:block;font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);margin-bottom:7px;}
+  .step h4{font-size:19px;margin-bottom:9px;color:var(--ink);}
+  .step p{font-size:14px;color:var(--body);line-height:1.6;}
 
   /* ---------- Three column ---------- */
   .tri{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;margin-top:8px;align-items:start;}
   .panel-title{font-size:23px;margin-bottom:22px;}
   /* Sobre */
-  .sobre-photo{width:100%;height:190px;margin-bottom:18px;}
+  .sobre-photo{width:100%;height:190px;margin-bottom:18px;border-radius:14px;overflow:hidden;border:1px solid var(--line);}
+  .sobre-photo img{width:100%;height:100%;object-fit:cover;}
   .sobre p{font-size:14.5px;color:var(--body);margin-bottom:12px;}
   .sobre-badges{display:flex;gap:18px;margin-top:20px;}
   .sobre-badges .b{text-align:center;flex:1;}
@@ -161,7 +176,7 @@
   .link-all svg{width:14px;height:14px;}
   .article{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);}
   .article:last-child{border-bottom:none;}
-  .article image-slot{width:92px;height:72px;flex:none;}
+  .article img{width:92px;height:72px;flex:none;object-fit:cover;border-radius:10px;border:1px solid var(--line);}
   .article h4{font-size:15.5px;margin-bottom:5px;line-height:1.3;color:var(--ink);}
   .article p{font-size:13px;color:var(--body);line-height:1.45;margin-bottom:6px;}
   .article .read{font-size:12.5px;color:var(--coral);font-weight:600;display:inline-flex;align-items:center;gap:4px;}
@@ -182,18 +197,18 @@
   .contact-left h2{font-size:clamp(28px,3.2vw,36px);margin-bottom:18px;}
   .contact-left .rule{width:54px;height:3px;background:var(--coral);border-radius:3px;margin-bottom:22px;}
   .contact-left p{font-size:15px;color:var(--body);margin-bottom:18px;max-width:380px;}
-  .lgpd{display:flex;gap:12px;align-items:flex-start;background:var(--cream);border:1px solid var(--line-cream);border-radius:12px;padding:16px 18px;margin-bottom:18px;}
+  .lgpd{display:flex;gap:12px;align-items:flex-start;background:var(--cream);border:1px solid var(--line-cream);border-radius:14px;padding:16px 18px;margin-bottom:18px;}
   .lgpd svg{width:22px;height:22px;color:var(--coral);flex:none;margin-top:2px;}
   .lgpd p{font-size:13px;color:var(--body);margin:0;}
   .priv-links{font-size:13.5px;}
   .priv-links a{color:var(--coral);font-weight:600;}
   .priv-links .dot{color:var(--muted);margin:0 8px;}
-  .form{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px;box-shadow:var(--shadow-card);}
+  .form{background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px;box-shadow:var(--shadow-card);}
   .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
   .field{margin-bottom:16px;}
   .field input,.field textarea{
     width:100%;font-family:var(--sans);font-size:15px;color:var(--ink);
-    padding:13px 15px;border:1px solid var(--line);border-radius:8px;background:#fdfcfa;
+    padding:13px 15px;border:1px solid var(--line);border-radius:10px;background:#fdfcfa;
     transition:border-color .18s,box-shadow .18s;
   }
   .field textarea{resize:vertical;min-height:118px;}
@@ -231,8 +246,13 @@
     .hero-grid{display:flex;flex-direction:column;gap:38px;padding:48px 0 0;}
     .hero-text{order:1;max-width:none;padding-bottom:48px;}
     .hero-photo{position:static;order:-1;width:auto;max-width:none;}
-    .hero-photo image-slot{
-      width:100%;height:340px;
+    .hero-photo img{
+      width:100%;height:340px;object-fit:cover;object-position:center 20%;
+      -webkit-mask-image:linear-gradient(to bottom, #000 62%, transparent 100%);
+      mask-image:linear-gradient(to bottom, #000 62%, transparent 100%);
+    }
+    .hero-photo::after{
+      background:linear-gradient(to bottom, rgba(15,39,64,.28) 0%, rgba(15,39,64,.34) 60%, rgba(15,39,64,.62) 100%);
       -webkit-mask-image:linear-gradient(to bottom, #000 62%, transparent 100%);
       mask-image:linear-gradient(to bottom, #000 62%, transparent 100%);
     }
@@ -241,8 +261,8 @@
     .features .feat{border-bottom:1px solid var(--line-cream);}
     .features .feat:nth-last-child(-n+2){border-bottom:none;}
     .areas-grid{grid-template-columns:repeat(2,1fr);}
-    .steps{grid-template-columns:repeat(2,1fr);gap:28px 8px;}
-    .step .arrow{display:none;}
+    .steps{grid-template-columns:repeat(2,1fr);gap:36px 30px;}
+    .step:not(:last-child)::after{display:none;}
     .tri{grid-template-columns:1fr;gap:40px;}
     .contact-grid{grid-template-columns:1fr;gap:34px;}
     .foot-grid{grid-template-columns:1fr 1fr;gap:32px;}
@@ -315,6 +335,111 @@
   :root[data-densidade="compacto"] .steps,
   :root[data-densidade="compacto"] .tri{margin-top:34px;}
   :root[data-densidade="compacto"] .area-card{padding:24px 22px;}
+
+  /* ============================================================
+     ATMOSFERA — profundidade de cor (marinho · royal · petróleo · salmão)
+     Camadas de gradiente/brilho sobre a estrutura existente.
+     ============================================================ */
+  :root{ --royal:#1a4686; --petrol:#15555d; --salmon:#f08d68; }
+  body{ background:#fbf7f1; }
+
+  /* Hero: marinho→royal com brilho salmão e véu petróleo */
+  .hero{
+    background:
+      radial-gradient(115% 92% at 80% 12%, rgba(240,141,104,.26), transparent 52%),
+      radial-gradient(95% 120% at 5% 98%, rgba(21,85,93,.45), transparent 58%),
+      linear-gradient(152deg,#1c4a8c 0%, #16324e 45%, #0f2740 100%);
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    box-shadow:inset 0 -90px 120px -60px rgba(8,20,36,.55);
+  }
+  .hero-text{z-index:2;}
+  .hero-trust .t svg{color:var(--salmon);}
+
+  /* Foto do hero em harmonia: leve dessaturação + véu marinho/royal e brilho salmão */
+  .hero-photo img{filter:saturate(.88) brightness(.86) contrast(.97);}
+  .hero-photo::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(75% 80% at 82% 22%, rgba(240,141,104,.16), transparent 58%),
+      linear-gradient(to right, rgba(15,39,64,.62) 0%, rgba(15,39,64,.12) 46%, rgba(22,62,112,.34) 100%);
+    -webkit-mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,.35) 18%, #000 48%);
+    mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,.35) 18%, #000 48%);
+    mix-blend-mode:multiply;
+  }
+
+  /* Accent e filetes em degradê salmão→coral */
+  .accent{
+    background:linear-gradient(96deg,#f59a73,#d2734c);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:transparent;
+  }
+  .title-rule,.hero .rule,.contact-left .rule{
+    background:linear-gradient(90deg,#f59a73,#d2734c);
+  }
+
+  /* Botões coral com volume */
+  .btn-coral{background:linear-gradient(135deg,#f3956d,#d2734c);box-shadow:0 6px 16px rgba(210,115,76,.30);}
+  .btn-coral:hover{background:linear-gradient(135deg,#ee8a5f,#c2653d);}
+
+  /* Seções creme com gradiente quente + brilhos sutis */
+  .section-cream{
+    background:
+      radial-gradient(72% 60% at 100% 0%, rgba(240,141,104,.11), transparent 60%),
+      radial-gradient(64% 72% at 0% 100%, rgba(21,85,93,.07), transparent 60%),
+      linear-gradient(180deg,#f8f3ec 0%, #f1e8dc 100%);
+  }
+
+  /* Faixa de destaques com leve profundidade quente */
+  .features{background:linear-gradient(180deg,#fbf7f1,#f4ece0);}
+  .features .feat .ic{color:var(--salmon);}
+
+  /* Cards com sombra quente e ícones salmão */
+  .area-card{box-shadow:0 1px 2px rgba(28,53,83,.05), 0 14px 30px -20px rgba(210,115,76,.45);}
+  .area-card .ic{color:var(--salmon);}
+
+  /* Nós do Atendimento com anel salmão vivo */
+  .step .num{box-shadow:0 0 0 6px #f3ebe0,0 0 0 7px rgba(240,141,104,.6),0 8px 18px rgba(18,42,66,.18);}
+  .step:hover .num{box-shadow:0 0 0 6px #f3ebe0,0 0 0 7px var(--salmon),0 12px 22px rgba(240,141,104,.4);}
+
+  /* Foto do Sobre com leve borda salmão */
+  .sobre-photo{border-color:rgba(240,141,104,.35);box-shadow:0 12px 30px -20px rgba(28,53,83,.35);}
+
+  /* Header: mesmo padrão do rodapé, invertido na vertical (brilho salmão na base) */
+  header{
+    background:
+      radial-gradient(64% 150% at 92% 100%, rgba(240,141,104,.20), transparent 56%),
+      radial-gradient(72% 150% at 0% 0%, rgba(21,85,93,.5), transparent 60%),
+      linear-gradient(200deg,#0f2740 0%, #1b4787 100%);
+    border-bottom:1px solid rgba(255,255,255,.10);
+    box-shadow:0 1px 0 rgba(240,141,104,.25), 0 10px 30px -18px rgba(8,20,36,.7);
+  }
+  header::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+    background:linear-gradient(90deg,transparent, rgba(240,141,104,.6) 35%, rgba(240,141,104,.6) 65%, transparent);
+  }
+  /* Realce no logo e no item ativo do menu */
+  header .brand .mark{filter:drop-shadow(0 2px 6px rgba(240,141,104,.45));}
+  .nav-links a.active::after{background:linear-gradient(90deg,#f59a73,#d2734c);height:2px;}
+
+  /* Rodapé: royal + petróleo + brilho salmão */
+  footer{
+    background:
+      radial-gradient(60% 120% at 92% 0%, rgba(240,141,104,.18), transparent 55%),
+      radial-gradient(72% 120% at 0% 100%, rgba(21,85,93,.5), transparent 60%),
+      linear-gradient(160deg,#1b4787 0%, #0f2740 100%);
+  }
+
+  /* Textura de grão muito sutil — elegância tátil */
+  body::after{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:200;opacity:.04;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode:multiply;
+  }
+  @media(prefers-reduced-motion:no-preference){
+    .area-card,.content-card{transition:transform .2s,box-shadow .2s,border-color .2s;}
+  }
 </style>
 </head>
 <body>
@@ -331,13 +456,13 @@
   <div class="wrap nav">
     <a href="#inicio" class="brand">
       <span class="mark" data-mark></span>
-      <span class="brand-name">Luciana Pinho<span>Advocacia</span></span>
+      <span class="brand-name">Dra. Luciana Pinho<span>Advocacia Previdenciária</span></span>
     </a>
     <nav class="nav-links" id="navLinks">
       <a href="#inicio" class="active">Início</a>
       <a href="#areas">Áreas de Atuação</a>
       <a href="#sobre">Sobre</a>
-      <a href="#conteudo">Conteúdo</a>
+      <a href="conteudo.html">Conteúdo Informativo</a>
       <a href="#contato">Contato</a>
     </nav>
     <div class="nav-right">
@@ -351,23 +476,21 @@
 <section class="hero" id="inicio">
   <div class="wrap hero-grid">
     <div class="hero-text">
-      <h1>Atuação jurídica previdenciária com <span class="accent">acolhimento, clareza</span> e responsabilidade.</h1>
+      <h1>Orientação jurídica previdenciária, <span class="accent">PCD e TEA</span> com seriedade, clareza e respeito.</h1>
       <div class="rule"></div>
-      <p class="lead">Atuação em Direito Previdenciário, BPC/LOAS e direitos da pessoa com deficiência, com orientação individualizada e análise técnica para proteger o que é seu por direito.</p>
+      <p class="lead">Atuação em Direito Previdenciário, direitos da pessoa com deficiência e autismo, com atendimento ético, técnico e individualizado.</p>
       <div class="hero-cta">
         <a href="#contato" class="btn btn-coral"><i data-lucide="calendar-check"></i> Agendar atendimento</a>
-        <a href="https://wa.me/5511987654321" target="_blank" rel="noopener" class="btn btn-ghost-light"><i data-lucide="message-circle"></i> Falar pelo WhatsApp</a>
+        <a href="https://wa.me/5535998601234" target="_blank" rel="noopener" class="btn btn-ghost-light"><i data-lucide="message-circle"></i> Falar pelo WhatsApp</a>
       </div>
       <div class="hero-trust">
-        <div class="t"><i data-lucide="heart-handshake"></i> Atendimento humanizado</div>
+        <div class="t"><i data-lucide="shield-check"></i> OAB/MG 7973-B</div>
         <div class="sep"></div>
-        <div class="t"><i data-lucide="message-square"></i> Orientação clara</div>
-        <div class="sep"></div>
-        <div class="t"><i data-lucide="shield-check"></i> Atuação ética</div>
+        <div class="t"><i data-lucide="calendar-clock"></i> 23 anos de atuação</div>
       </div>
     </div>
     <div class="hero-photo">
-      <image-slot id="hero-portrait" shape="rect" src="dra-luciana-hero.png" placeholder="Solte a foto da Dra. Luciana (escritório)"></image-slot>
+      <img src="dra-luciana-hero.png" alt="Dra. Luciana Pinho em atendimento">
     </div>
   </div>
 </section>
@@ -406,12 +529,12 @@
     <h2 class="sec-title reveal">Áreas de <span class="accent">atuação</span></h2>
     <div class="title-rule reveal"></div>
     <div class="areas-grid">
-      <div class="area-card reveal"><i class="ic" data-lucide="armchair"></i><h3>Aposentadoria</h3><p>Planejamento e concessão de aposentadorias.</p></div>
-      <div class="area-card reveal"><i class="ic" data-lucide="users-round"></i><h3>BPC/LOAS</h3><p>Benefício de Prestação Continuada para idosos e pessoas com deficiência.</p></div>
-      <div class="area-card reveal"><i class="ic" data-lucide="heart-pulse"></i><h3>Auxílio por incapacidade</h3><p>Auxílio-doença e aposentadoria por incapacidade.</p></div>
-      <div class="area-card reveal"><i class="ic" data-lucide="users"></i><h3>Pensão por morte</h3><p>Orientação para concessão do benefício aos dependentes.</p></div>
-      <div class="area-card reveal"><i class="ic" data-lucide="file-text"></i><h3>Revisão de benefício</h3><p>Análise para garantir que seu benefício esteja correto.</p></div>
-      <div class="area-card reveal"><i class="ic" data-lucide="accessibility"></i><h3>Direitos da pessoa com deficiência</h3><p>Acesso a benefícios e direitos com dignidade e inclusão.</p></div>
+      <div class="area-card reveal"><i class="ic" data-lucide="armchair"></i><h3>Aposentadorias</h3><p>Aposentadorias por idade, tempo de contribuição, por invalidez e especiais, garantindo o melhor enquadramento para o seu caso.</p></div>
+      <div class="area-card reveal"><i class="ic" data-lucide="heart-pulse"></i><h3>Benefícios por incapacidade</h3><p>Auxílio-doença, aposentadoria por invalidez, auxílio-acidente, auxílio-maternidade e outros benefícios por incapacidade.</p></div>
+      <div class="area-card reveal"><i class="ic" data-lucide="badge-check"></i><h3>BPC / LOAS</h3><p>BPC/LOAS para o idoso e para a pessoa com deficiência, com análise dos requisitos legais e da renda familiar.</p></div>
+      <div class="area-card reveal"><i class="ic" data-lucide="users"></i><h3>Pensão, revisão e planejamento</h3><p>Pensão por morte, revisão de benefícios e planejamento previdenciário para decisões mais seguras.</p></div>
+      <div class="area-card reveal"><i class="ic" data-lucide="accessibility"></i><h3>Direitos da pessoa com deficiência</h3><p>Inclusão escolar, cotas, acessibilidade, isenção fiscal e direitos no trabalho e na capacitação.</p></div>
+      <div class="area-card reveal"><i class="ic" data-lucide="puzzle"></i><h3>Autismo e direitos (TEA)</h3><p>CIPTEA, tratamentos e terapias, inclusão em planos de saúde e demais direitos da pessoa com TEA.</p></div>
     </div>
   </div>
 </section>
@@ -419,13 +542,13 @@
 <!-- ============ COMO FUNCIONA ============ -->
 <section class="pad section-cream">
   <div class="wrap">
-    <h2 class="sec-title reveal">Como funciona o atendimento</h2>
+    <h2 class="sec-title reveal">Atendimento</h2>
     <div class="title-rule reveal"></div>
     <div class="steps">
-      <div class="step reveal"><i class="arrow" data-lucide="arrow-right"></i><div class="num">1</div><h4>Primeiro contato</h4><p>Você entra em contato e conta, de forma resumida, sua necessidade.</p></div>
-      <div class="step reveal"><i class="arrow" data-lucide="arrow-right"></i><div class="num">2</div><h4>Análise inicial</h4><p>Realizamos uma análise preliminar do caso e orientamos sobre os próximos passos.</p></div>
-      <div class="step reveal"><i class="arrow" data-lucide="arrow-right"></i><div class="num">3</div><h4>Documentação</h4><p>Orientamos sobre os documentos necessários para uma avaliação completa.</p></div>
-      <div class="step reveal"><div class="num">4</div><h4>Orientação jurídica</h4><p>Com base na análise, indicamos as medidas cabíveis e o melhor caminho para o seu caso.</p></div>
+      <div class="step reveal"><div class="num">1</div><span class="step-label">Etapa 01</span><h4>Contato inicial</h4><p>Você entra em contato e explica a sua situação, de forma simples e segura.</p></div>
+      <div class="step reveal"><div class="num">2</div><span class="step-label">Etapa 02</span><h4>Análise preliminar</h4><p>Realizamos uma análise da documentação e das orientações jurídicas aplicáveis ao seu caso.</p></div>
+      <div class="step reveal"><div class="num">3</div><span class="step-label">Etapa 03</span><h4>Documentação</h4><p>Orientamos sobre os documentos necessários para uma avaliação completa.</p></div>
+      <div class="step reveal"><div class="num">4</div><span class="step-label">Etapa 04</span><h4>Orientação individualizada</h4><p>Você recebe orientações claras sobre seus direitos e os próximos passos, com transparência e ética.</p></div>
     </div>
   </div>
 </section>
@@ -435,10 +558,10 @@
   <div class="wrap tri">
     <!-- Sobre -->
     <div class="sobre reveal">
-      <h3 class="panel-title">Sobre a Dra. Luciana</h3>
-      <image-slot id="sobre-photo" class="sobre-photo" shape="rounded" radius="12" placeholder="Solte o retrato da Dra. Luciana"></image-slot>
-      <p>Advogada com atuação em Direito Previdenciário, dedicada à orientação jurídica de pessoas e famílias na busca por seus direitos.</p>
-      <p>Acreditamos que informação de qualidade e atendimento humanizado fazem a diferença em cada história.</p>
+      <h3 class="panel-title">Sobre a Dra. Luciana Pinho</h3>
+      <div class="sobre-photo"><img src="fotosobre.png" alt="Dra. Luciana Pinho — Advocacia Previdenciária"></div>
+      <p>Com 23 anos de atuação exclusiva em Direito Previdenciário, a Dra. Luciana Pinho presta orientação jurídica em demandas previdenciárias e em causas relacionadas aos direitos da pessoa com deficiência e ao autismo.</p>
+      <p>Inscrita na OAB/MG 7973-B, dedica sua prática a informações claras, ao estudo técnico e à análise individualizada de cada situação.</p>
       <div class="sobre-badges">
         <div class="b"><i class="ic" data-lucide="user-round"></i><span>Atendimento individualizado</span></div>
         <div class="b"><i class="ic" data-lucide="message-square"></i><span>Clareza na comunicação</span></div>
@@ -450,19 +573,19 @@
     <div class="conteudo reveal" id="conteudo">
       <div class="panel-head">
         <h3 class="panel-title">Conteúdo informativo</h3>
-        <a href="#" class="link-all">Ver todos os artigos <i data-lucide="arrow-right"></i></a>
+        <a href="conteudo.html" class="link-all">Ver todos os artigos <i data-lucide="arrow-right"></i></a>
       </div>
       <article class="article">
-        <image-slot id="art-1" shape="rounded" radius="8" placeholder="Imagem"></image-slot>
-        <div><h4>BPC/LOAS: quem tem direito ao benefício</h4><p>Entenda os requisitos e documentos necessários para solicitar o BPC.</p><a href="#" class="read">Ler artigo <i data-lucide="arrow-right"></i></a></div>
+        <a href="artigos/bpc-loas.html"><img src="bpcloas.png" alt="BPC/LOAS para idoso e para pessoa com deficiência"></a>
+        <div><h4>BPC/LOAS para idoso e para PCD: quem tem direito?</h4><p>Entenda os critérios, a renda familiar e os documentos necessários para solicitar o BPC.</p><a href="artigos/bpc-loas.html" class="read">Ler artigo <i data-lucide="arrow-right"></i></a></div>
       </article>
       <article class="article">
-        <image-slot id="art-2" shape="rounded" radius="8" placeholder="Imagem"></image-slot>
-        <div><h4>Direitos da pessoa com deficiência</h4><p>Informações importantes sobre inclusão, benefícios e proteção de direitos.</p><a href="#" class="read">Ler artigo <i data-lucide="arrow-right"></i></a></div>
+        <a href="artigos/direitos-pcd.html"><img src="dirpcd.png" alt="Direitos da pessoa com deficiência"></a>
+        <div><h4>Direitos da pessoa com deficiência</h4><p>Informações importantes sobre inclusão, acessibilidade, benefícios e proteção de direitos.</p><a href="artigos/direitos-pcd.html" class="read">Ler artigo <i data-lucide="arrow-right"></i></a></div>
       </article>
       <article class="article">
-        <image-slot id="art-3" shape="rounded" radius="8" placeholder="Imagem"></image-slot>
-        <div><h4>Revisão de benefício: quando é possível?</h4><p>Saiba em quais situações pode haver revisão do seu benefício previdenciário.</p><a href="#" class="read">Ler artigo <i data-lucide="arrow-right"></i></a></div>
+        <a href="artigos/revisao-de-beneficio.html"><img src="revisaoben.png" alt="Revisão de benefício previdenciário"></a>
+        <div><h4>Revisão de benefício: quando é possível?</h4><p>Saiba em quais situações pode haver revisão do seu benefício previdenciário.</p><a href="artigos/revisao-de-beneficio.html" class="read">Ler artigo <i data-lucide="arrow-right"></i></a></div>
       </article>
     </div>
 
@@ -494,9 +617,9 @@
 <section class="pad section-cream" id="contato">
   <div class="wrap contact-grid">
     <div class="contact-left reveal">
-      <h2>Entre em contato</h2>
+      <h2>Vamos conversar?</h2>
       <div class="rule"></div>
-      <p>Preencha o formulário ao lado que retornaremos o mais breve possível.</p>
+      <p>Entre em contato para orientação jurídica previdenciária, PCD e TEA. Preencha o formulário ao lado que retornaremos o mais breve possível.</p>
       <div class="lgpd">
         <i data-lucide="lock"></i>
         <p>Seus dados serão tratados em conformidade com a LGPD, exclusivamente para retorno do seu contato.</p>
@@ -526,9 +649,9 @@
     <div class="foot foot-brand">
       <a href="#inicio" class="brand">
         <span class="mark" data-mark></span>
-        <span class="brand-name">Luciana Pinho<span>Advocacia</span></span>
+        <span class="brand-name">Dra. Luciana Pinho<span>Advocacia Previdenciária</span></span>
       </a>
-      <p>Direito Previdenciário com acolhimento, clareza e responsabilidade.</p>
+      <p>Direito Previdenciário, PCD e TEA com seriedade, clareza e respeito.</p>
     </div>
     <div class="foot">
       <h5>Links rápidos</h5>
@@ -536,16 +659,16 @@
         <li><a href="#inicio">Início</a></li>
         <li><a href="#areas">Áreas de Atuação</a></li>
         <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#conteudo">Conteúdo</a></li>
+        <li><a href="conteudo.html">Conteúdo Informativo</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
     </div>
     <div class="foot">
       <h5>Contato</h5>
       <ul class="foot-contact">
-        <li><i data-lucide="phone"></i><span>(11) 98765-4321</span></li>
-        <li><i data-lucide="mail"></i><span>contato@lucianapinho.adv.br</span></li>
-        <li><i data-lucide="map-pin"></i><span>São Paulo/SP — Atendimento presencial com agendamento.</span></li>
+        <li><i data-lucide="phone"></i><span>(35) 99860-1234</span></li>
+        <li><i data-lucide="mail"></i><span>contato@dlucianapinho.adv.br</span></li>
+        <li><i data-lucide="map-pin"></i><span>Av. Major Gote, 1350, Sala 203, Lucas do Rio Verde/MT — CEP 78.455-000</span></li>
       </ul>
     </div>
     <div class="foot foot-info">
@@ -555,8 +678,8 @@
     </div>
   </div>
   <div class="wrap foot-bottom">
-    <div class="l">© 2024 Luciana Pinho Advocacia. Todos os direitos reservados.</div>
-    <div class="r"><span>OAB/SP 123.456</span><span class="dot">|</span><span>Site institucional</span></div>
+    <div class="l">© 2024 Dra. Luciana Pinho — Todos os direitos reservados.</div>
+    <div class="r"><span>OAB/MG 7973-B</span><span class="dot">|</span><span>Site institucional</span></div>
   </div>
 </footer>
 

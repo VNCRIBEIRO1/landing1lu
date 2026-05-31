@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conteúdo Informativo — Dra. Luciana Pinho</title>
+<meta name="description" content="Artigos e materiais explicativos sobre direitos previdenciários, BPC/LOAS, direitos da pessoa com deficiência e autismo (TEA).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+<template id="markSvg">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3v18"/><path d="M7 21h10"/><path d="M5 6h14"/><path d="M8 6 4.5 13a3.5 3.5 0 0 0 7 0L8 6Z"/><path d="M16 6l3.5 7a3.5 3.5 0 0 1-7 0L16 6Z"/><path d="M9 3h6"/>
+  </svg>
+</template>
+
+<!-- HEADER -->
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand">
+      <span class="mark" data-mark></span>
+      <span class="brand-name">Dra. Luciana Pinho<span>Advocacia Previdenciária</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Início</a>
+      <a href="index.html#areas">Áreas de Atuação</a>
+      <a href="index.html#sobre">Sobre</a>
+      <a href="conteudo.html" class="active">Conteúdo Informativo</a>
+      <a href="index.html#contato">Contato</a>
+    </nav>
+    <div class="nav-right">
+      <a href="index.html#contato" class="btn btn-coral">Agendar atendimento</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu"><i data-lucide="menu"></i></button>
+    </div>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">Início</a> <i data-lucide="chevron-right"></i> Conteúdo Informativo</div>
+    <h1>Conteúdo informativo</h1>
+    <p>Artigos e materiais explicativos sobre os principais direitos previdenciários, da pessoa com deficiência e do autismo — em linguagem clara e acessível.</p>
+  </div>
+</section>
+
+<!-- ARTICLES GRID -->
+<section class="pad">
+  <div class="wrap">
+    <div class="content-grid" style="margin-top:0;">
+      <a class="content-card reveal" href="artigos/aposentadorias.html">
+        <div class="cover grad"><i data-lucide="armchair"></i></div>
+        <div class="body">
+          <h3>Aposentadorias: idade, tempo, especial e rural</h3>
+          <p>As modalidades de aposentadoria do INSS e os requisitos de cada uma após a Reforma da Previdência.</p>
+          <span class="read">Ler artigo <i data-lucide="arrow-right"></i></span>
+        </div>
+      </a>
+      <a class="content-card reveal" href="artigos/auxilio-incapacidade.html">
+        <div class="cover grad"><i data-lucide="heart-pulse"></i></div>
+        <div class="body">
+          <h3>Auxílio-doença e benefícios por incapacidade</h3>
+          <p>Auxílio por incapacidade temporária, aposentadoria por incapacidade permanente e auxílio-acidente.</p>
+          <span class="read">Ler artigo <i data-lucide="arrow-right"></i></span>
+        </div>
+      </a>
+      <a class="content-card reveal" href="artigos/bpc-loas.html">
+        <div class="cover"><img src="bpcloas.png" alt="BPC/LOAS para idoso e para pessoa com deficiência"></div>
+        <div class="body">
+          <h3>BPC/LOAS para idoso e para PCD: quem tem direito?</h3>
+          <p>Confira os critérios, a renda familiar e os documentos necessários para solicitar o BPC/LOAS.</p>
+          <span class="read">Ler artigo <i data-lucide="arrow-right"></i></span>
+        </div>
+      </a>
+      <a class="content-card reveal" href="artigos/pensao-por-morte.html">
+        <div class="cover grad"><i data-lucide="users"></i></div>
+        <div class="body">
+          <h3>Pensão por morte: quem tem direito e como funciona</h3>
+          <p>Quem são os dependentes, a duração do benefício, o cálculo do valor e os documentos necessários.</p>
+          <span class="read">Ler artigo <i data-lucide="arrow-right"></i></span>
+        </div>
+      </a>
+      <a class="content-card reveal" href="artigos/revisao-de-beneficio.html">
+        <div class="cover"><img src="revisaoben.png" alt="Revisão de benefício previdenciário"></div>
+        <div class="body">
+          <h3>Revisão de benefício: quando é possível?</h3>
+          <p>Saiba em quais situações o seu benefício pode ser revisto, os prazos e como funciona a revisão.</p>
+          <span class="read">Ler artigo <i data-lucide="arrow-right"></i></span>
+        </div>
+      </a>
+      <a class="content-card reveal" href="artigos/direitos-pcd.html">
+        <div class="cover"><img src="dirpcd.png" alt="Direitos da pessoa com deficiência"></div>
+        <div class="body">
+          <h3>Direitos da pessoa com deficiência: inclusão e proteção</h3>
+          <p>Inclusão, acessibilidade, isenções, cotas e proteção legal dos direitos da pessoa com deficiência.</p>
+          <span class="read">Ler artigo <i data-lucide="arrow-right"></i></span>
+        </div>
+      </a>
+      <a class="content-card reveal" href="artigos/autismo-tea.html">
+        <div class="cover grad"><i data-lucide="puzzle"></i></div>
+        <div class="body">
+          <h3>Autismo e direitos (TEA): inclusão, terapias e proteção</h3>
+          <p>CIPTEA, cobertura de terapias pelo plano de saúde, inclusão escolar e demais direitos da pessoa com TEA.</p>
+          <span class="read">Ler artigo <i data-lucide="arrow-right"></i></span>
+        </div>
+      </a>
+      <a class="content-card reveal" href="artigos/isencao-fiscal-pcd.html">
+        <div class="cover grad"><i data-lucide="badge-percent"></i></div>
+        <div class="body">
+          <h3>Isenção fiscal para PCD: veículos e Imposto de Renda</h3>
+          <p>Isenção de IPI, ICMS, IPVA e IOF na compra de veículos e de IR por doença grave: requisitos e como pedir.</p>
+          <span class="read">Ler artigo <i data-lucide="arrow-right"></i></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot foot-brand">
+      <a href="index.html" class="brand">
+        <span class="mark" data-mark></span>
+        <span class="brand-name">Dra. Luciana Pinho<span>Advocacia Previdenciária</span></span>
+      </a>
+      <p>Direito Previdenciário, PCD e TEA com seriedade, clareza e respeito.</p>
+    </div>
+    <div class="foot">
+      <h5>Navegação</h5>
+      <ul>
+        <li><a href="index.html#sobre">Sobre</a></li>
+        <li><a href="index.html#areas">Áreas de Atuação</a></li>
+        <li><a href="conteudo.html">Conteúdo Informativo</a></li>
+        <li><a href="index.html#contato">Contato</a></li>
+        <li><a href="#">Política de Privacidade</a></li>
+        <li><a href="#">Termos de Uso</a></li>
+      </ul>
+    </div>
+    <div class="foot">
+      <h5>Contato</h5>
+      <ul class="foot-contact">
+        <li><i data-lucide="phone"></i><span>(35) 99860-1234</span></li>
+        <li><i data-lucide="mail"></i><span>contato@dlucianapinho.adv.br</span></li>
+        <li><i data-lucide="map-pin"></i><span>Av. Major Gote, 1350, Sala 203, Lucas do Rio Verde/MT — CEP 78.455-000</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <div class="l">© 2024 Dra. Luciana Pinho — Todos os direitos reservados.</div>
+    <div class="r"><span>OAB/MG 7973-B</span><span class="dot">|</span><span>Conteúdo meramente informativo</span></div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var tpl = document.getElementById('markSvg');
+    if(tpl){ var svg = tpl.innerHTML; document.querySelectorAll('[data-mark]').forEach(function(el){ el.innerHTML = svg; }); }
+  })();
+  if(window.lucide) lucide.createIcons();
+  var toggle = document.getElementById('menuToggle');
+  var navLinks = document.getElementById('navLinks');
+  if(toggle){ toggle.addEventListener('click', function(){ navLinks.classList.toggle('open'); }); }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
